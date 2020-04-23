@@ -1,4 +1,15 @@
 
+# An Exploration into the Members of Bikeshare Companies in Chicago and New York City
+#
+# Editor : Bethany Marie Ward
+# Version : 1.1
+# Date : 23/04/2020
+#
+# Created By : Bethany Marie Ward
+# Date : 15/04/2020
+#
+# For description, associated files and credits view README.md
+
 ny = read.csv('new_york_city.csv')
 wash = read.csv('washington.csv')
 chi = read.csv('chicago.csv')
