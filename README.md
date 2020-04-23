@@ -5,7 +5,9 @@
 An Exploration into the Members of Bikeshare Companies in Chicago and New York City
 
 ### Description
-Describe what your project is about and what it does
+In this project I look at the gender and age distributions of members of the 
+bikeshare companies Divvy Bikes (Chicago) and Citi Bike NYC, as well as the 
+duration of trips by members.
 
 ### Files used
 Include the files used
