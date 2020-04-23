@@ -11,18 +11,13 @@
 # For description, associated files and credits view README.md
 
 ny = read.csv('new_york_city.csv')
-wash = read.csv('washington.csv')
 chi = read.csv('chicago.csv')
 
 head(ny)
-
-head(wash)
-
 head(chi, 8)
 
 library(ggplot2)
 library(grDevices)
-
 
 # Member birth years of the two cities
 ggplot()  + 
@@ -42,19 +37,10 @@ ggplot()  +
     scale_fill_manual("", values = c(adjustcolor('tomato', alpha = 0.75), adjustcolor('violet', alpha = 0.75)), breaks = c("New York City", "Chicago")) + 
     scale_color_discrete(guide = FALSE)
 
-# Writes a title for any summary in this project
-mySummaryTitle <- function(x = "x", bySummary = FALSE, y = "y", city = "Washington DC") {
-    if (bySummary == FALSE) {
-        writeLines(paste(x, "of", y, "in", city))
-   } else {
-        writeLines(paste(x, "by", y, "in", city))
-    }
-}
-
 # Birth year data
-mySummaryTitle("Birth Years", FALSE, "Bikeshare Subscribers", "New York City")
+writeLines("Birth Years of Bikeshare Subscribers in New York City")
 summary(ny$Birth.Year, subset(ny, !is.na(Birth.Year))) 
-mySummaryTitle('Birth Years', FALSE, "Subscribers", "Chicago City")
+writeLines("Birth Years of Subscribers in Chicago City")
 summary(chi$Birth.Year, subset(chi, !is.na(Birth.Year)))
 
 # Add a column Age to NYC data
@@ -69,11 +55,11 @@ ggplot(aes(x = Age, y = Trip.Duration), data = subset(ny, !is.na(Age))) +
     ggtitle('Bikeshare Ride Durations by Subscriber Age in New York City') 
 
 # Trip duration data displays the extremity of outliers 
-mySummaryTitle('Duration', FALSE, 'Bikeshare Trips', 'New York City')
+writeLines('Duration of Bikeshare Trips in New York City')
 summary(ny$Trip.Duration)
 
 # Age data
-mySummaryTitle('Age', FALSE, 'Bikeshare Subscribers', 'New York City')
+writeLines('Age of Bikeshare Subscribers in New York City')
 summary(ny$Age)
 
 # Gender:trip_duration (adjusted to ignore extremities)
@@ -85,7 +71,7 @@ ggplot(aes(x = Gender, y = Trip.Duration), data = subset(chi, Gender != '')) +
     ggtitle('Bikeshare Bike Ride Duration by Gender in Chicago City')
 
 # Trip durations by gender in Chicago
-mySummaryTitle('Bikeshare Trip Durations', TRUE, 'Gender', 'Chicago City')
+writeLines('Bikeshare Trip Durations by Gender in Chicago City')
 by(chi$Trip.Duration, chi$Gender, summary)
 
 system('python -m nbconvert Explore_bikeshare_data.ipynb')
