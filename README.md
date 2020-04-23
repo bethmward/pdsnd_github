@@ -10,7 +10,9 @@ bikeshare companies Divvy Bikes (Chicago) and Citi Bike NYC, as well as the
 duration of trips by members.
 
 ### Files used
-Include the files used
+* bikeshare.r
+* chicago.csv
+* new_york_city.csv
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
