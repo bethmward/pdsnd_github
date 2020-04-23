@@ -15,5 +15,9 @@ duration of trips by members.
 * new_york_city.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+* Udacity ; Programming for Data Science with R Nanodegree
+	- https://www.udacity.com/course/programming-for-data-science-nanodegree-with-R--nd118
+* R Documentation
+	- https://www.rdocumentation.org/packages/grDevices/versions/3.6.2
+	- https://www.rdocumentation.org/packages/ggplot2/versions/3.3.0
 
