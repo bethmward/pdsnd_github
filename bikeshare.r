@@ -31,19 +31,11 @@ ggplot()  +
     scale_fill_manual("", values = c(adjustcolor('tomato', alpha = 0.75), adjustcolor('violet', alpha = 0.75)), breaks = c("New York City", "Chicago")) + 
     scale_color_discrete(guide = FALSE)
 
-# Function writes a title for any summary in this project
-mySummaryTitle <- function(x = "x", bySummary = FALSE, y = "y", city = "Washington DC") {
-    if (bySummary == FALSE) {
-        writeLines(paste(x, "of", y, "in", city))
-   } else {
-        writeLines(paste(x, "by", y, "in", city))
-    }
-}
 
 # Summarise birth year data
-mySummaryTitle("Birth Years", FALSE, "Bikeshare Subscribers", "New York City")
+writeLines("Birth Years of Bikeshare Subscribers in New York City")
 summary(ny$Birth.Year, subset(ny, !is.na(Birth.Year))) 
-mySummaryTitle('Birth Years', FALSE, "Subscribers", "Chicago City")
+writeLines("Birth Years of Subscribers in Chicago City")
 summary(chi$Birth.Year, subset(chi, !is.na(Birth.Year)))
 
 # Add a column for age for concise code
@@ -58,11 +50,11 @@ ggplot(aes(x = Age, y = Trip.Duration), data = subset(ny, !is.na(Age))) +
     ggtitle('Bikeshare Ride Durations by Subscriber Age in New York City') 
 
 # summarised trip duration data to display the extremity of outliers 
-mySummaryTitle('Duration', FALSE, 'Bikeshare Trips', 'New York City')
+writeLines('Duration of Bikeshare Trips in New York City')
 summary(ny$Trip.Duration)
 
 # summarised age data
-mySummaryTitle('Age', FALSE, 'Bikeshare Subscribers', 'New York City')
+writeLines('Age of Bikeshare Subscribers in New York City')
 summary(ny$Age)
 
 # adjusted boxplot to take care of major outliers
@@ -74,7 +66,7 @@ ggplot(aes(x = Gender, y = Trip.Duration), data = subset(chi, Gender != '')) +
     ggtitle('Bikeshare Bike Ride Duration by Gender in Chicago City')
 
 # summarise trip durations by gender
-mySummaryTitle('Bikeshare Trip Durations', TRUE, 'Gender', 'Chicago City')
+writeLines('Bikeshare Trip Durations by Gender in Chicago City')
 by(chi$Trip.Duration, chi$Gender, summary)
 
 system('python -m nbconvert Explore_bikeshare_data.ipynb')
