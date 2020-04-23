@@ -1,17 +1,12 @@
 
 ny = read.csv('new_york_city.csv')
-
 chi = read.csv('chicago.csv')
 
 head(ny)
-
-
-
 head(chi, 8)
 
 library(ggplot2)
 library(grDevices) # I'm using this because I find it way easier for working with colours
-
 
 # Base plot overlayed by two histograms to portray the subcriber birth years of the two cities
 ggplot()  + 
@@ -30,7 +25,6 @@ ggplot()  +
     ggtitle('Birth Years of Bikeshare Subscribers by City') +
     scale_fill_manual("", values = c(adjustcolor('tomato', alpha = 0.75), adjustcolor('violet', alpha = 0.75)), breaks = c("New York City", "Chicago")) + 
     scale_color_discrete(guide = FALSE)
-
 
 # Summarise birth year data
 writeLines("Birth Years of Bikeshare Subscribers in New York City")
